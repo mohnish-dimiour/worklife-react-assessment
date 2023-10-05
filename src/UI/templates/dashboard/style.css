@@ -1,0 +1,122 @@
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+/* input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+} */
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button.update-btn {
+  background-color: #28a745;
+}
+
+button.delete-btn {
+  background-color: #dc3545;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  font-size: 18px;
+  border-radius: 6px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  background: white;
+  text-align: center;
+  width: 600px !important;
+}
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper {
+  width: 100%;
+  height: 300px;
+  margin: 20px auto;
+}
+.append-buttons {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.append-buttons button {
+  display: inline-block;
+  cursor: pointer;
+  border: 1px solid #007aff;
+  color: #007aff;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin: 0 10px;
+  font-size: 13px;
+}
+@import url("https://fonts.googleapis.com/css?family=Special+Elite");
+
+blockquote {
+  padding: 30px 70px;
+  font-weight: 100;
+  font-family: "Special Elite", cursive;
+  font-size: 1.5rem;
+  max-width: 600px;
+  line-height: 1.4;
+  position: relative;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.493);
+}
+
+.swiper-slide:before,
+.swiper-slide:after {
+  position: absolute;
+  color: #f1efe6;
+  font-size: 8rem;
+  width: 4rem;
+  height: 4rem;
+}
+
+.swiper-slide:before {
+  content: "“";
+  left: 0rem;
+  top: -2rem;
+}
+
+.swiper-slide:after {
+  content: "”";
+  right: 0rem;
+  bottom: 2rem;
+}
+
+cite {
+  line-height: 3;
+  text-align: left;
+  font-family: "Special Elite", cursive;
+}

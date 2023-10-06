@@ -1,8 +1,10 @@
+// Replace placeholders in a URL with data values
 export const replaceUrl = (url, data) => {
   var regex = new RegExp(":(" + Object.keys(data).join("|") + ")", "g");
   return url?.replace(regex, (m, $1) => data[$1] || m);
 };
 
+// Calculate and format the time difference to present
 export function timeDiffToPresent(targetTime) {
   const currentTime = new Date();
   const timeDifference = targetTime - currentTime;

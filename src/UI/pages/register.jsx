@@ -8,20 +8,6 @@ import { registerAsyncThunk } from "../../redux/asyncThunk";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
-// Form Validation
-const validationSchema = Yup.object().shape({
-  firstName: Yup.string().max(50).required("First Name is required"),
-  lastName: Yup.string().max(50).required("Last Name is required"),
-  email: Yup.string()
-    .max(50)
-    .required("Email is required")
-    .email("Email must be valid"),
-  password: Yup.string().max(50).required("Password is required"),
-  confirmPassword: Yup.string()
-    .oneOf([Yup.ref("password"), null], "Passwords must match")
-    .required("Confirm Password is required"),
-});
-
 export const Register = () => {
   //---------------------Hooks------------------//
   const dispatch = useDispatch();
@@ -74,3 +60,17 @@ export const Register = () => {
     </RegisterContext.Provider>
   );
 };
+
+// Validation Schemas
+const validationSchema = Yup.object().shape({
+  firstName: Yup.string().max(50).required("First Name is required"),
+  lastName: Yup.string().max(50).required("Last Name is required"),
+  email: Yup.string()
+    .max(50)
+    .required("Email is required")
+    .email("Email must be valid"),
+  password: Yup.string().max(50).required("Password is required"),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("password"), null], "Passwords must match")
+    .required("Confirm Password is required"),
+});

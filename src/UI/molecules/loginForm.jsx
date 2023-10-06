@@ -16,21 +16,25 @@ import Typography from "@mui/material/Typography";
 import Lottie from "lottie-react";
 import loginAnimation from "../../assets/lottieFiles/animation_lnbq0mjf.json";
 
+// LoginForm component
 export const LoginForm = () => {
   const { errors, handleBlur, handleChange, handleSubmit, touched, values } =
     useContext(LoginContext);
 
   return (
     <form noValidate onSubmit={handleSubmit}>
+      {/* Grid layout */}
       <Grid
         container
         component="main"
         sx={{ height: "100vh", justifyContent: "space-between" }}
       >
         <CssBaseline />
+        {/* Left side with animation */}
         <Grid xs={6} justifyContent={"center"} alignItems={"center"} item>
           <Lottie animationData={loginAnimation} loop={true} />
         </Grid>
+        {/* Right side with login form */}
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
           <Box
             sx={{
@@ -49,10 +53,11 @@ export const LoginForm = () => {
             </Typography>
             <Box sx={{ mt: 2, mb: 2, width: "75%" }}>
               <Stack spacing={2}>
+                {/* Email input */}
                 <InputField
                   size={"medium"}
                   id="email"
-                  lable="Email"
+                  label="Email"
                   value={values.email}
                   required
                   errortext={touched.email && errors.email}
@@ -61,10 +66,11 @@ export const LoginForm = () => {
                   onBlur={handleBlur}
                   onChange={handleChange}
                 />
+                {/* Password input */}
                 <InputField
                   size={"medium"}
                   id="password"
-                  lable="Password"
+                  label="Password"
                   type="password"
                   value={values.password}
                   required
@@ -75,10 +81,12 @@ export const LoginForm = () => {
                   onChange={handleChange}
                 />
               </Stack>
+              {/* Remember me checkbox */}
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
+              {/* Login button */}
               <ButtonAtom
                 fullWidth
                 type="submit"
@@ -89,6 +97,7 @@ export const LoginForm = () => {
               >
                 Login
               </ButtonAtom>
+              {/* Forgot password and Register links */}
               <Grid container>
                 <Grid item xs>
                   <Link href="#" variant="body2">

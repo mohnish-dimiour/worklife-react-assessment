@@ -1,14 +1,16 @@
 import { Box, Stack, Typography, lighten } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import React, { useContext } from "react";
-import { ButtonAtom, IconButtonAtom } from "../atoms";
+import { ButtonAtom } from "../atoms";
 import { DashboardContext } from "../../utils/contexts";
-import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import { timeDiffToPresent } from "../../utils/helpers";
 
+// ReminderCard component
 export function ReminderCard() {
+  // Accessing data and functions from the DashboardContext
   const { handleClickOpen, userReminderList } = useContext(DashboardContext);
+
   return (
     <Box
       sx={{
@@ -22,6 +24,7 @@ export function ReminderCard() {
       }}
     >
       <Stack>
+        {/* Header section */}
         <Stack
           direction={"row"}
           justifyContent={"space-between"}
@@ -36,10 +39,12 @@ export function ReminderCard() {
           }}
           alignItems={"center"}
         >
+          {/* Title for upcoming reminders */}
           <Typography sx={{ color: grey[800] }} variant={"h6"}>
             Upcoming Reminders
           </Typography>
 
+          {/* Button to add a new reminder */}
           <ButtonAtom
             onClick={handleClickOpen}
             variant={"outlined"}
@@ -50,8 +55,11 @@ export function ReminderCard() {
             Add Reminder
           </ButtonAtom>
         </Stack>
+
+        {/* List of user's reminders */}
         <Stack spacing={0.8}>
           {userReminderList.map((item, ind) => {
+            // Background color for reminder based on index
             let backgroundColor = (theme) =>
               lighten(theme.palette.error.main, 0.7);
             if (ind % 3 === 0) {
@@ -71,6 +79,7 @@ export function ReminderCard() {
                 sx={{ background: grey[200], px: 2, py: 1, borderRadius: 1 }}
               >
                 <Box>
+                  {/* reminder title */}
                   <Box
                     component="span"
                     sx={{
@@ -82,8 +91,9 @@ export function ReminderCard() {
                       background: backgroundColor,
                     }}
                   >
-                    {item.reminderId.title}
+                    {item?.reminderId?.title}
                   </Box>
+                  {/* reminder description */}
                   <Typography
                     sx={{
                       color: grey[700],
@@ -92,21 +102,19 @@ export function ReminderCard() {
                     variant="h6"
                     color="initial"
                   >
-                    {item.reminderId.description}
+                    {item?.reminderId?.description}
                   </Typography>
                 </Box>
                 <Box>
+                  {/* time difference to present */}
                   <Box
                     sx={{
                       fontSize: "12px",
                       color: grey[600],
                     }}
                   >
-                    {timeDiffToPresent(new Date(item.startDate))}
+                    {timeDiffToPresent(new Date(item?.startDate))}
                   </Box>
-                  <Stack justifyContent={"flex-end"} alignItems={"flex-end"}>
-                    <CloseRoundedIcon sx={{ color: grey[800] }} />
-                  </Stack>
                 </Box>
               </Stack>
             );

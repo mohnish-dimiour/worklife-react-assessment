@@ -15,6 +15,7 @@ import {
   getWorkScheduleAsyncThunk,
   updateWorkScheduleAsyncThunk,
 } from "../../redux/asyncThunk";
+import { socket } from "../../layout/MainLayout";
 
 export const Dashboard = () => {
   //---------------------Hooks------------------//
@@ -147,6 +148,15 @@ export const Dashboard = () => {
         handleClose();
         dispatch(getUserRemindersAsyncThunk());
         toast.success("Reminder created successfully!");
+        socket.emit("scheduleMessage", {
+          startDate : payload.startDate,
+          endDate : payload.endDate,
+          workStartTime : 11,
+          count : payload.count, 
+          frequency : payload.frequency,
+          reminder : reminderList.filter(o=>o._id === payload.reminderId)[0],
+          userId  : payload.userId
+        });
       })
       .catch((err) => {
         toast.error(
@@ -181,7 +191,7 @@ export const Dashboard = () => {
   );
 };
 
-// Add Reminder Validation
+// Validation Schemas
 const addReminderValidationSchema = Yup.object().shape({
   reminderId: Yup.string().required("Reminder is required"),
   status: Yup.string().max(255).required("Status is required"),

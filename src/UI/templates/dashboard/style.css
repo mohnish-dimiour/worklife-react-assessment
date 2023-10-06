@@ -1,13 +1,16 @@
+/* Set a maximum width for the container and center it */
 .container {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
 }
 
+/* Center-align the heading */
 h2 {
   text-align: center;
 }
 
+/* Remove list styles and add margin to list items */
 ul {
   list-style-type: none;
   padding: 0;
@@ -17,12 +20,7 @@ li {
   margin-bottom: 10px;
 }
 
-/* input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-} */
-
+/* Styling for buttons */
 button {
   padding: 10px 20px;
   background-color: #007bff;
@@ -31,6 +29,7 @@ button {
   cursor: pointer;
 }
 
+/* Additional button styles */
 button.update-btn {
   background-color: #28a745;
 }
@@ -39,17 +38,20 @@ button.delete-btn {
   background-color: #dc3545;
 }
 
+/* Styles for the Swiper container */
 .swiper {
   width: 100%;
   height: 100%;
 }
 
+/* Background image styles */
 .bg-image {
-  /* Add the blur effect */
   height: 100%;
 }
 
+/* Text overlay on the background image */
 .bg-text {
+  /* Center the text vertically and horizontally */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -62,6 +64,7 @@ button.delete-btn {
   text-align: center;
 }
 
+/* Styles for individual Swiper slides */
 .swiper-slide {
   font-size: 18px;
   border-radius: 6px;
@@ -70,9 +73,9 @@ button.delete-btn {
   overflow: hidden;
   text-align: center;
   width: 500px !important;
-  /* background-image: url("../../../assets/images/profile.jpeg");
-  filter: blur(8px); */
 }
+
+/* Styles for images inside Swiper slides */
 .swiper-slide img {
   display: block;
   width: 100%;
@@ -80,16 +83,20 @@ button.delete-btn {
   object-fit: cover;
 }
 
+/* Styles for the Swiper container */
 .swiper {
   width: 100%;
   height: 300px;
   margin: 20px auto;
 }
+
+/* Styles for appending buttons */
 .append-buttons {
   text-align: center;
   margin-top: 20px;
 }
 
+/* Styles for individual appending buttons */
 .append-buttons button {
   display: inline-block;
   cursor: pointer;
@@ -101,8 +108,11 @@ button.delete-btn {
   margin: 0 10px;
   font-size: 13px;
 }
+
+/* Importing a Google Font */
 @import url("https://fonts.googleapis.com/css?family=Special+Elite");
 
+/* Styling for blockquotes */
 blockquote {
   padding: 30px 70px;
   font-weight: 100;
@@ -115,6 +125,7 @@ blockquote {
   color: white;
 }
 
+/* Quotation marks for blockquotes */
 .swiper-slide:before,
 .swiper-slide:after {
   position: absolute;
@@ -136,6 +147,7 @@ blockquote {
   bottom: 2rem;
 }
 
+/* Styles for citation in blockquotes */
 cite {
   line-height: 3;
   text-align: left;

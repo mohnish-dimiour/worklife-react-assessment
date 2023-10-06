@@ -2,6 +2,7 @@ import { Navigate } from "react-router-dom";
 import { Login, Register } from "../UI/pages";
 import { AuthLayout } from "../layout/auth.layout";
 
+// Authentication-related routes
 export const authRoutes = [
   {
     path: "/",

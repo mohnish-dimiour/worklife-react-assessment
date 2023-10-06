@@ -1,6 +1,3 @@
-import {createContext} from "react"
-
-const initialState = {
-}
-
-export const RegisterContext = createContext(initialState)
+import { createContext } from "react";
+const initialState = {};
+export const RegisterContext = createContext(initialState);

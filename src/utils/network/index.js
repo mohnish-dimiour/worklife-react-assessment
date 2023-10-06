@@ -1,5 +1,5 @@
 import { AppInstance, AuthInstance } from "../../App";
-
+// Authentication client for making HTTP requests with AuthInstance
 export const AuthClient = ({
   url,
   method,
@@ -18,6 +18,7 @@ export const AuthClient = ({
   });
 };
 
+// Application client for making HTTP requests with AppInstance
 export const AppClient = ({
   url,
   method,

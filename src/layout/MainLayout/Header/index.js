@@ -1,13 +1,13 @@
-import { Stack, Typography, alpha, styled } from "@mui/material";
-import React, { useContext } from "react";
-import Logo from "../../../assets/images/logou.png";
-import NotificationsNoneRoundedIcon from "@mui/icons-material/NotificationsNoneRounded";
-import { IconButtonAtom } from "../../../UI/atoms";
-import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
+import React from "react";
 import { useDispatch } from "react-redux";
+import { Stack, Typography, styled } from "@mui/material";
+import NotificationsNoneRoundedIcon from "@mui/icons-material/NotificationsNoneRounded";
+import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import { logout } from "../../../redux/slices/auth.slice";
+import Logo from "../../../assets/images/logou.png";
+import { IconButtonAtom } from "../../../UI/atoms";
 
-// Styled Component
+// Styled Component for Header
 const HeaderWrapper = styled(Stack)(({ theme }) => ({
   position: "sticky",
   top: 0,
@@ -22,47 +22,57 @@ const HeaderWrapper = styled(Stack)(({ theme }) => ({
   justifyContent: "space-between",
 }));
 
+// Header Component
 const Header = () => {
   const dispatch = useDispatch();
+
+  // Function to handle user logout
   const handleLogout = () => {
     dispatch(logout());
   };
+
   return (
     <HeaderWrapper>
-      <Stack direction="row">
+      {/* Logo and Title */}
+      <Stack direction="row" alignItems="center">
         <img width="40" alt="SociBuzz Logo" src={Logo} />
         <Typography
           variant="h5"
-          color={"primary"}
+          color="primary"
           sx={{ ml: 1, mt: 0.3, fontWeight: "bold" }}
         >
           WorkLife
         </Typography>
       </Stack>
-      <Stack direction={"row"} spacing={1} alignItems={"center"}>
+
+      {/* Notification and Logout Buttons */}
+      <Stack direction="row" spacing={1} alignItems="center">
+        {/* Notification Button */}
         <IconButtonAtom
           sx={{
             background: (theme) => theme.palette.secondary.light,
             borderRadius: "3px !important",
             padding: "3px !important",
           }}
-          aria-label="delete"
+          aria-label="Notifications"
         >
           <NotificationsNoneRoundedIcon
             sx={{ color: (theme) => theme.palette.primary.main }}
           />
         </IconButtonAtom>
+
+        {/* Logout Button */}
         <IconButtonAtom
           sx={{
-            background: (theme) => alpha(theme.palette.error.light, 0.3),
+            background: (theme) => theme.palette.secondary.light,
             borderRadius: "3px !important",
             padding: "3px !important",
           }}
-          aria-label="delete"
+          aria-label="Logout"
           onClick={handleLogout}
         >
           <LogoutRoundedIcon
-            sx={{ color: (theme) => theme.palette.error.main }}
+            sx={{ color: (theme) => theme.palette.primary.main }}
           />
         </IconButtonAtom>
       </Stack>

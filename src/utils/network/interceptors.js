@@ -1,24 +1,49 @@
 import { AppInstance, AuthInstance } from "../../App";
 
-AuthInstance.interceptors.request(
+// Request interceptor for AuthInstance
+AuthInstance.interceptors.request.use(
   (config) => {
+    // Add any request logic here if needed
     return config;
   },
-  (err) => {}
+  (err) => {
+    // Handle request error here if needed
+    return Promise.reject(err);
+  }
 );
 
-AuthInstance.interceptors.response(((res) => {}, (err) => {}));
+// Response interceptor for AuthInstance
+AuthInstance.interceptors.response.use(
+  (res) => {
+    // Add response logic here if needed
+    return res;
+  },
+  (err) => {
+    // Handle response error here if needed
+    return Promise.reject(err);
+  }
+);
 
-AppInstance.interceptors.request(
+// Request interceptor for AppInstance
+AppInstance.interceptors.request.use(
   (config) => {
+    // Add any request logic here if needed
     return config;
   },
-  (err) => {}
+  (err) => {
+    // Handle request error here if needed
+    return Promise.reject(err);
+  }
 );
 
-AppInstance.interceptors.response(
-  ((res) => {
-    return res.data;
+// Response interceptor for AppInstance
+AppInstance.interceptors.response.use(
+  (res) => {
+    // Add response logic here if needed
+    return res.data; // This line indicates that the response data is returned
   },
-  (err) => {})
+  (err) => {
+    // Handle response error here if needed
+    return Promise.reject(err);
+  }
 );

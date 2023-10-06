@@ -6,33 +6,42 @@ import {
   getUserRemindersService,
 } from "../services";
 
+// Async thunk for fetching reminders
 export const getRemindersAsyncThunk = createAsyncThunk(
   ASYNC_ROUTES.GET_REMINDERS,
   async (_, { rejectWithValue }) => {
     try {
-      return await getRemindersService();
+      // To fetch reminders
+      const response = await getRemindersService();
+      return response;
     } catch (error) {
       return rejectWithValue(error);
     }
   }
 );
 
+// Async thunk for adding a reminder
 export const addReminderAsyncThunk = createAsyncThunk(
   ASYNC_ROUTES.ADD_REMINDER,
-  async (paylaod, { rejectWithValue }) => {
+  async (payload, { rejectWithValue }) => {
     try {
-      return await addRemindersService(paylaod);
+      // Add a reminder
+      const response = await addRemindersService(payload);
+      return response;
     } catch (error) {
       return rejectWithValue(error);
     }
   }
 );
 
+// Async thunk for fetching user reminders
 export const getUserRemindersAsyncThunk = createAsyncThunk(
   ASYNC_ROUTES.GET_USER_REMINDERS,
   async (_, { rejectWithValue }) => {
     try {
-      return await getUserRemindersService();
+      // Fetch user-specific reminders
+      const response = await getUserRemindersService();
+      return response;
     } catch (error) {
       return rejectWithValue(error);
     }

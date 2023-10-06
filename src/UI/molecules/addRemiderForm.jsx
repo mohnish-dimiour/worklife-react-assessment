@@ -9,6 +9,7 @@ import {
 } from "../atoms";
 
 export function AddRemiderForm() {
+  // Access necessary data from the DashboardContext
   const { reminderListSelectArr, addReminderFormik } =
     React.useContext(DashboardContext);
   const {
@@ -25,6 +26,7 @@ export function AddRemiderForm() {
     <form noValidate onSubmit={handleSubmit}>
       <Stack spacing={1.5}>
         <Stack direction="row" spacing={1}>
+          {/* Select reminder */}
           <SelectAtom
             label={"Reminder"}
             name={"reminderId"}
@@ -35,6 +37,7 @@ export function AddRemiderForm() {
             errortext={touched.reminderId && errors.reminderId}
             error={Boolean(errors.reminderId && touched.reminderId)}
           />
+          {/* Select status */}
           <SelectAtom
             label={"Status"}
             name={"status"}
@@ -57,6 +60,7 @@ export function AddRemiderForm() {
           />
         </Stack>
         <Stack direction="row" spacing={1}>
+          {/* Select start date and time */}
           <DateTimePickerAtom
             name={"startDate"}
             label={"Start"}
@@ -69,6 +73,7 @@ export function AddRemiderForm() {
             error={Boolean(errors.startDate && touched.startDate)}
             required={true}
           />
+          {/* Select end date and time */}
           <DateTimePickerAtom
             name={"endDate"}
             label={"End"}
@@ -83,8 +88,9 @@ export function AddRemiderForm() {
           />
         </Stack>
         <Stack direction="row" spacing={1}>
+          {/* Input frequency */}
           <InputField
-            lable={"Frequency"}
+            label={"Frequency"}
             name={"frequency"}
             type={"number"}
             id={"frequency"}
@@ -95,8 +101,9 @@ export function AddRemiderForm() {
             error={Boolean(errors.frequency && touched.frequency)}
             required={true}
           />
+          {/* Input count */}
           <InputField
-            lable={"Count"}
+            label={"Count"}
             name={"count"}
             type={"number"}
             id={"count"}
@@ -105,6 +112,7 @@ export function AddRemiderForm() {
           />
         </Stack>
       </Stack>
+      {/* Add reminder button */}
       <ButtonAtom fullWidth sx={{ mt: 3 }} color={"secondary"} type="submit">
         Add
       </ButtonAtom>

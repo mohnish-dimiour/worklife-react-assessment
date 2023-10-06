@@ -1,5 +1,6 @@
-import {Outlet} from "react-router-dom"
+import { Outlet } from "react-router-dom";
 
-export const AuthLayout = ()=>{
-    return <Outlet/>
-}
+// Auth layout component for rendering nested routes
+export const AuthLayout = () => {
+  return <Outlet />;
+};

@@ -5,7 +5,7 @@ export const SERVICE_URL = {
 
   // REMINDERS
   GET_REMINDERS: "/reminder",
-  ADD_REMINDER: "/userReminder",
+  ADD_REMINDER: "/userReminder/",
   GET_USER_REMINDERS: "/userReminder",
 
   // WORK SCHEDULE

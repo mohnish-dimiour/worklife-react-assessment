@@ -18,9 +18,10 @@ export function WorkScheduleForm() {
   return (
     <form noValidate onSubmit={handleSubmit}>
       <Stack spacing={1.5}>
+        {/* Job Type Input */}
         <Stack direction="row" spacing={1}>
           <InputField
-            lable={"Job Type"}
+            label={"Job Type"}
             name={"jobType"}
             type={"text"}
             id={"jobtype"}
@@ -32,6 +33,8 @@ export function WorkScheduleForm() {
             required={true}
           />
         </Stack>
+
+        {/* Start Time and End Time Pickers */}
         <Stack direction="row" spacing={1}>
           <TimePickerAtom
             name={"startTime"}
@@ -58,6 +61,8 @@ export function WorkScheduleForm() {
             required={true}
           />
         </Stack>
+
+        {/* Lunch Start and Lunch End Pickers */}
         <Stack direction="row" spacing={1}>
           <TimePickerAtom
             name={"lunchStartTime"}
@@ -85,6 +90,8 @@ export function WorkScheduleForm() {
           />
         </Stack>
       </Stack>
+
+      {/* Submit Button */}
       <ButtonAtom fullWidth sx={{ mt: 3 }} color={"secondary"} type="submit">
         Update Work Schedule
       </ButtonAtom>

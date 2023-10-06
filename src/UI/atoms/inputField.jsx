@@ -1,10 +1,12 @@
 import TextField from "@mui/material/TextField";
+
 export const InputField = (props) => {
-  const { id, lable, value, required, errortext, error, name } = props;
+  const { id, label, value, required, errortext, error, name, ...restProps } =
+    props;
   return (
     <TextField
       id={id}
-      label={lable}
+      label={label}
       color="primary"
       margin="none"
       size="small"
@@ -14,7 +16,7 @@ export const InputField = (props) => {
       error={error}
       helperText={errortext}
       name={name}
-      {...props}
+      {...restProps}
     />
   );
 };

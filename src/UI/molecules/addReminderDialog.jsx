@@ -9,6 +9,7 @@ import { Stack } from "@mui/material";
 import { AddRemiderForm } from "./";
 import { IconButtonAtom } from "../atoms";
 
+// Custom styled Dialog
 const CustomDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
@@ -18,17 +19,21 @@ const CustomDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
+// AddReminderDialog component
 export function AddReminderDialog({ open, handleClose }) {
   return (
     <div>
+      {/* Customized Dialog */}
       <CustomDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
         open={open}
         sx={{ minWidth: 300 }}
       >
+        {/* Dialog Title */}
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
           <Stack direction="row" spacing={1}>
+            {/* Notifications icon */}
             <Stack
               sx={{
                 background: (theme) => lighten(theme.palette.info.light, 0.8),
@@ -44,6 +49,7 @@ export function AddReminderDialog({ open, handleClose }) {
             <Stack>Add Reminder</Stack>
           </Stack>
         </DialogTitle>
+        {/* Close button */}
         <IconButtonAtom
           aria-label="close"
           onClick={handleClose}
@@ -56,7 +62,9 @@ export function AddReminderDialog({ open, handleClose }) {
         >
           <CloseIcon />
         </IconButtonAtom>
+        {/* Dialog Content */}
         <DialogContent sx={{ minWidth: 500 }} dividers>
+          {/* Add Reminder Form */}
           <AddRemiderForm />
         </DialogContent>
       </CustomDialog>

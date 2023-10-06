@@ -9,6 +9,7 @@ import { IconButtonAtom } from "../atoms";
 import EditNoteRoundedIcon from "@mui/icons-material/EditNoteRounded";
 import { WorkScheduleForm } from ".";
 
+// Styled Dialog component
 const CustomDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
@@ -29,6 +30,7 @@ export function WorkScheduleDialog({ workDialogOpen, handleClose }) {
       >
         <DialogTitle sx={{ m: 0, p: 2 }} id="customized-dialog-title">
           <Stack direction="row" spacing={1}>
+            {/* Icon for indicating editing */}
             <Stack
               sx={{
                 background: (theme) => lighten(theme.palette.info.light, 0.8),
@@ -41,9 +43,11 @@ export function WorkScheduleDialog({ workDialogOpen, handleClose }) {
                 sx={{ color: (theme) => theme.palette.info.main }}
               />
             </Stack>
+            {/* Title */}
             <Stack>Work Schedule</Stack>
           </Stack>
         </DialogTitle>
+        {/* Close button */}
         <IconButtonAtom
           aria-label="close"
           onClick={handleClose}
@@ -56,6 +60,7 @@ export function WorkScheduleDialog({ workDialogOpen, handleClose }) {
         >
           <CloseIcon />
         </IconButtonAtom>
+        {/* Content area */}
         <DialogContent sx={{ minWidth: 500 }} dividers>
           <WorkScheduleForm />
         </DialogContent>

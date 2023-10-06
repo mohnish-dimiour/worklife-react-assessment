@@ -1,21 +1,29 @@
-import {createAsyncThunk} from "@reduxjs/toolkit";
+import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ASYNC_ROUTES } from "../../utils/constants/redux.constants";
 import { loginServices, registerServices } from "../services";
 
-
-export const loginAsyncThunk = createAsyncThunk(ASYNC_ROUTES.LOGIN, async (paylaod, {rejectWithValue})=>{
+// Async thunk for handling user login
+export const loginAsyncThunk = createAsyncThunk(
+  ASYNC_ROUTES.LOGIN,
+  async (payload, { rejectWithValue }) => {
     try {
-        return await loginServices(paylaod)
+      const response = await loginServices(payload);
+      return response;
     } catch (error) {
-        return rejectWithValue(error)
+      return rejectWithValue(error);
     }
-})
+  }
+);
 
-
-export const registerAsyncThunk = createAsyncThunk(ASYNC_ROUTES.REGISTER, async (paylaod, {rejectWithValue})=>{
+// Async thunk for handling user registration
+export const registerAsyncThunk = createAsyncThunk(
+  ASYNC_ROUTES.REGISTER,
+  async (payload, { rejectWithValue }) => {
     try {
-        return await registerServices(paylaod)  
+      const response = await registerServices(payload);
+      return response;
     } catch (error) {
-        return rejectWithValue(error)
+      return rejectWithValue(error);
     }
-})
+  }
+);

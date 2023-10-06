@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { ButtonAtom, InputField } from "../atoms";
-import Button from "@mui/material/Button";
 import { RegisterContext } from "../../utils/contexts";
 import { Stack } from "@mui/material";
 import * as React from "react";
@@ -17,9 +16,12 @@ import Typography from "@mui/material/Typography";
 import Lottie from "lottie-react";
 import loginAnimation from "../../assets/lottieFiles/animation_lnbstp1d.json";
 
+// RegisterForm component
 export const RegisterForm = () => {
+  // Context to handle registration form values and actions
   const { errors, handleBlur, handleChange, handleSubmit, touched, values } =
     useContext(RegisterContext);
+
   return (
     <form noValidate onSubmit={handleSubmit}>
       <Grid
@@ -50,9 +52,10 @@ export const RegisterForm = () => {
             <Box sx={{ mt: 2, mb: 2, width: "75%" }}>
               <Stack spacing={2}>
                 <Stack direction="row" spacing={1}>
+                  {/* First Name Input Field */}
                   <InputField
                     size={"medium"}
-                    lable={"First Name"}
+                    label={"First Name"}
                     value={values.firstName}
                     name={"firstName"}
                     type={"firstName"}
@@ -63,9 +66,10 @@ export const RegisterForm = () => {
                     errortext={touched.firstName && errors.firstName}
                     error={Boolean(errors.firstName && touched.firstName)}
                   />
+                  {/* Last Name Input Field */}
                   <InputField
                     size={"medium"}
-                    lable={"Last Name"}
+                    label={"Last Name"}
                     value={values.lastName}
                     name={"lastName"}
                     type={"lastName"}
@@ -78,9 +82,10 @@ export const RegisterForm = () => {
                   />
                 </Stack>
 
+                {/* Email Input Field */}
                 <InputField
                   size={"medium"}
-                  lable={"Email"}
+                  label={"Email"}
                   value={values.email}
                   name={"email"}
                   type={"email"}
@@ -91,9 +96,10 @@ export const RegisterForm = () => {
                   error={Boolean(touched.email && errors.email)}
                   errortext={touched.email && errors.email}
                 />
+                {/* Password Input Field */}
                 <InputField
                   size={"medium"}
-                  lable={"Password"}
+                  label={"Password"}
                   value={values.password}
                   name={"password"}
                   type={"password"}
@@ -104,9 +110,10 @@ export const RegisterForm = () => {
                   error={Boolean(touched.password && errors.password)}
                   errortext={touched.password && errors.password}
                 />
+                {/* Confirm Password Input Field */}
                 <InputField
                   size={"medium"}
-                  lable={"Confirm Password"}
+                  label={"Confirm Password"}
                   value={values.confirmPassword}
                   name={"confirmPassword"}
                   type={"password"}
@@ -125,6 +132,7 @@ export const RegisterForm = () => {
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
+              {/* Register Button */}
               <ButtonAtom
                 type="submit"
                 fullWidth

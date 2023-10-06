@@ -5,21 +5,21 @@ import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { TextField } from "@mui/material";
 
 export const DateTimePickerAtom = (props) => {
-  const { label, error, errortext, required } = props;
+  const { label, error, errortext, required, ...restProps } = props;
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DateTimePicker
         slotProps={{
           textField: {
             size: "small",
-            error: error,
+            error,
             helperText: errortext,
-            required: required,
+            required,
           },
         }}
         label={label}
         renderInput={() => <TextField error={error} helperText={errortext} />}
-        {...props}
+        {...restProps}
       />
     </LocalizationProvider>
   );

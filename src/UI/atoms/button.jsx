@@ -1,6 +1,16 @@
 import Button from "@mui/material/Button";
+
 export const ButtonAtom = (props) => {
-  const { name, type, color, disabled, children, onClick, fullWidth } = props;
+  const {
+    name,
+    type,
+    color,
+    disabled,
+    children,
+    onClick,
+    fullWidth,
+    ...restProps
+  } = props;
   return (
     <Button
       name={name}
@@ -10,7 +20,7 @@ export const ButtonAtom = (props) => {
       disabled={disabled}
       onClick={onClick}
       fullWidth={fullWidth}
-      {...props}
+      {...restProps}
     >
       {children}
     </Button>

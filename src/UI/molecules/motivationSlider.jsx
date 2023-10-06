@@ -1,16 +1,18 @@
 import React, { useContext } from "react";
-// Import Swiper React components
+// Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+
+// Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+
+// Slider Images
 import Slider1 from "../../assets/images/slider-1.jpg";
 import Slider2 from "../../assets/images/slider-2.jpg";
 import Slider3 from "../../assets/images/slider-3.jpg";
 import Slider4 from "../../assets/images/slider-4.jpg";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-
-// import required modules
+// Required modules
 import { Autoplay, Navigation } from "swiper/modules";
 import { Quote } from "../atoms";
 import { DashboardContext } from "../../utils/contexts";

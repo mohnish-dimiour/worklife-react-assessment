@@ -19,7 +19,7 @@ export const addRemindersService = (data) => {
 
 export const getUserRemindersService = () => {
   return AppClient({
-    url: SERVICE_URL.GET_REMINDERS,
+    url: SERVICE_URL.GET_USER_REMINDERS,
     method: METHODS.GET,
   });
 };

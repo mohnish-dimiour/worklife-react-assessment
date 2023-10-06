@@ -13,7 +13,6 @@ export const WorkScheduleSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getWorkScheduleAsyncThunk.pending, (state, action) => {
-      console.log("yyyyyaaa running");
       state.workScheduleStatus = THUNK_STATUS.PENDING;
     });
     builder.addCase(getWorkScheduleAsyncThunk.fulfilled, (state, action) => {

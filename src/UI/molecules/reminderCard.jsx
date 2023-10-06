@@ -5,6 +5,7 @@ import { ButtonAtom, IconButtonAtom } from "../atoms";
 import { DashboardContext } from "../../utils/contexts";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
+import { timeDiffToPresent } from "../../utils/helpers";
 
 export function ReminderCard() {
   const { handleClickOpen, userReminderList } = useContext(DashboardContext);
@@ -50,17 +51,16 @@ export function ReminderCard() {
           </ButtonAtom>
         </Stack>
         <Stack spacing={0.8}>
-          {userReminderList.map((item) => {
-            const a = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+          {userReminderList.map((item, ind) => {
             let backgroundColor = (theme) =>
               lighten(theme.palette.error.main, 0.7);
-            if (a === 1) {
+            if (ind % 3 === 0) {
               backgroundColor = (theme) =>
                 lighten(theme.palette.error.main, 0.7);
-            } else if (a === 2) {
+            } else if (ind % 3 === 1) {
               backgroundColor = (theme) =>
                 lighten(theme.palette.info.main, 0.7);
-            } else if (a === 3) {
+            } else if (ind % 3 === 2) {
               backgroundColor = (theme) =>
                 lighten(theme.palette.success.main, 0.7);
             }
@@ -82,7 +82,7 @@ export function ReminderCard() {
                       background: backgroundColor,
                     }}
                   >
-                    {item.title}
+                    {item.reminderId.title}
                   </Box>
                   <Typography
                     sx={{
@@ -92,7 +92,7 @@ export function ReminderCard() {
                     variant="h6"
                     color="initial"
                   >
-                    {item.description}
+                    {item.reminderId.description}
                   </Typography>
                 </Box>
                 <Box>
@@ -102,7 +102,7 @@ export function ReminderCard() {
                       color: grey[600],
                     }}
                   >
-                    2 mins
+                    {timeDiffToPresent(new Date(item.startDate))}
                   </Box>
                   <Stack justifyContent={"flex-end"} alignItems={"flex-end"}>
                     <CloseRoundedIcon sx={{ color: grey[800] }} />

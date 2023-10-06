@@ -5,8 +5,8 @@ export const ASYNC_ROUTES = {
 
   // REMINDERS
   GET_REMINDERS: "reminders/getReminders",
+  GET_USER_REMINDERS: "userReminders/getReminders",
   ADD_REMINDER: "reminders/addReminder",
-  GET_USER_REMINDERS: "reminders/getUserReminders",
 
   // WORK SCHEDULE
   GET_WORKSCHEDULE: "workSchedule/get",

@@ -20,7 +20,7 @@ export function MotivationSlider() {
   return (
     <>
       <Swiper
-        slidesPerView={2}
+        slidesPerView={3}
         spaceBetween={30}
         pagination={{
           type: "fraction",
@@ -31,21 +31,21 @@ export function MotivationSlider() {
           delay: 2500,
           disableOnInteraction: false,
         }}
+        loop={true}
         className="mySwiper"
       >
-        {motivationList.map((item) => {
-          const a = Math.floor(Math.random() * (3 - 1 + 1)) + 1;
+        {motivationList.map((item, ind) => {
           let data = {
             img: Slider1,
             author: "Toni Morrison",
           };
-          if (a === 1) {
+          if (ind % 4 === 0) {
             data.img = Slider2;
             data.author = "James Cameron";
-          } else if (a === 2) {
+          } else if (ind % 4 === 1) {
             data.img = Slider4;
             data.author = "Steve Jobs";
-          } else if (a === 3) {
+          } else if (ind % 4 === 2) {
             data.img = Slider3;
             data.author = "James Cameron";
           } else {

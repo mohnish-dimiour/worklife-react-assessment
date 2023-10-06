@@ -84,7 +84,6 @@ export const Dashboard = () => {
         minute: "numeric",
         hour12: true,
       });
-      console.log(values, "value");
       handleWorkSchedule({ ...values });
     },
   });
@@ -145,6 +144,8 @@ export const Dashboard = () => {
     dispatch(addReminderAsyncThunk(payload))
       .unwrap()
       .then((res) => {
+        handleClose();
+        dispatch(getUserRemindersAsyncThunk());
         toast.success("Reminder created successfully!");
       })
       .catch((err) => {

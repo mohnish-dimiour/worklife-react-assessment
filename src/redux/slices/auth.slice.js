@@ -24,9 +24,8 @@ export const AuthSlice = createSlice({
     });
     builder.addCase(loginAsyncThunk.fulfilled, (state, action) => {
       state.loginStatus = THUNK_STATUS.SUCCESS;
-      state.user = action.payload;
+      state.user = action.payload.data.user;
       state.token = action.payload.data.token;
-      console.log(action.payload, "tttttttttt");
     });
     builder.addCase(loginAsyncThunk.rejected, (state, action) => {
       state.loginStatus = THUNK_STATUS.REJECTED;

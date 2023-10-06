@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
 import { Dashboard } from "../UI/pages";
-import MainLayout from "./MainLayout";
+import MainLayout from "../layout/MainLayout";
 
 export const mainRoutes = [
   {

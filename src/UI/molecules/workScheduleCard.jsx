@@ -1,12 +1,14 @@
-import React from "react";
-import { CardStatsWithAreaChart } from "./";
-import AccessTimeRoundedIcon from "@mui/icons-material/AccessTimeRounded";
-import { Box, Divider, Stack, Typography, alpha, lighten } from "@mui/material";
+import React, { useContext } from "react";
+import { Box, Stack, Typography, alpha, lighten } from "@mui/material";
 import { grey } from "@mui/material/colors";
 import { IconButtonAtom } from "../atoms";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import Lottie from "lottie-react";
+import loginAnimation from "../../assets/lottieFiles/work-schedule.json";
+import { DashboardContext } from "../../utils/contexts";
 
 export function WorkScheduleCard() {
+  const { handleWorkDialogOpen, workSchedule } = useContext(DashboardContext);
   return (
     <Box
       sx={{
@@ -21,28 +23,32 @@ export function WorkScheduleCard() {
         <Stack
           direction={"row"}
           justifyContent={"space-between"}
-          sx={{ width: "100%" }}
+          sx={{ width: "100%", mb: 2 }}
           alignItems={"center"}
         >
           <Typography sx={{ color: grey[800] }} variant={"h6"}>
             Work Schedule
           </Typography>
           <IconButtonAtom aria-label="delete">
-            <MoreVertIcon sx={{ color: grey[400] }} size={"small"} />
+            <MoreVertIcon
+              onClick={handleWorkDialogOpen}
+              sx={{ color: grey[400] }}
+              size={"small"}
+            />
           </IconButtonAtom>
         </Stack>
-        <CardStatsWithAreaChart
-          stats="10%"
-          chartColor="success"
-          avatarColor="success"
-          title="Work Improvement"
-          avatarIcon="tabler:credit-card"
-          chartSeries={[{ data: [6, 35, 25, 61, 32, 84, 70] }]}
+        <Box
           sx={{
             boxShadow: "none",
             background: (theme) => lighten(theme.palette.primary.light, 0.8),
           }}
-        />
+        >
+          <Lottie
+            style={{ height: 180 }}
+            animationData={loginAnimation}
+            loop={true}
+          />
+        </Box>
         <Box
           sx={{
             my: 1,
@@ -54,25 +60,24 @@ export function WorkScheduleCard() {
         >
           <Box sx={{ py: 1, display: "flex", flexDirection: "column" }}>
             <Box sx={{ mb: 0, display: "flex", alignItems: "center" }}>
-              <Typography sx={{ color: "text.secondary" }}>Start</Typography>
+              <Typography sx={{ color: "text.secondary", fontSize: 13 }}>
+                Work Start
+              </Typography>
             </Box>
-            <Typography variant="h5">7:36 pm</Typography>
+            <Typography variant="h6">
+              {workSchedule[0]?.startTime || "9:52 AM"}
+            </Typography>
           </Box>
-          <Divider flexItem sx={{ m: 0 }} orientation="vertical">
-            <IconButtonAtom
-              sx={{
-                background: (theme) => lighten(theme.palette.info.main, 0.9),
-                m: 0,
-              }}
-              aria-label="delete"
-            >
-              <AccessTimeRoundedIcon
-                sx={{
-                  color: (theme) => lighten(theme.palette.info.light, 0.2),
-                }}
-              />
-            </IconButtonAtom>
-          </Divider>
+          <Box sx={{ py: 1, display: "flex", flexDirection: "column" }}>
+            <Box sx={{ mb: 0, display: "flex", alignItems: "center" }}>
+              <Typography sx={{ color: "text.secondary", fontSize: 13 }}>
+                Job Type
+              </Typography>
+            </Box>
+            <Typography variant="h6">
+              {workSchedule[0]?.jobType || "Full Time"}
+            </Typography>
+          </Box>
           <Box
             sx={{
               py: 1,
@@ -82,65 +87,44 @@ export function WorkScheduleCard() {
             }}
           >
             <Box sx={{ mb: 0, display: "flex", alignItems: "center" }}>
-              <Typography sx={{ mr: 0.5, color: "text.secondary" }}>
-                End
-              </Typography>
-            </Box>
-            <Typography variant="h5">8:40 pm</Typography>
-          </Box>
-        </Box>
-        <Stack
-          direction={"row"}
-          alignItems={"center"}
-          justifyContent={"space-between"}
-        >
-          <Typography sx={{ mr: 0.5, color: "text.secondary" }}>
-            Job Type :
-          </Typography>
-          <Typography
-            sx={{
-              mr: 0.5,
-              py: 0.5,
-              px: 2,
-              borderRadius: 1.2,
-              background: (theme) => alpha(theme.palette.error.light, 0.3),
-            }}
-          >
-            Urgent
-          </Typography>
-        </Stack>
-        <Box
-          sx={{
-            my: 1,
-            gap: 2,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <Box sx={{ py: 1, display: "flex", flexDirection: "column" }}>
-            <Box sx={{ mb: 0, display: "flex", alignItems: "center" }}>
-              <Typography sx={{ color: "text.secondary" }}>
+              <Typography
+                sx={{ mr: 0.5, color: "text.secondary", fontSize: 13 }}
+              >
                 Lunch Start
               </Typography>
             </Box>
-            <Typography variant="h5">7:36 pm</Typography>
+            <Typography variant="h6">
+              {workSchedule[0]?.lunchStartTime || "5:00 PM"}
+            </Typography>
           </Box>
-          <Divider flexItem sx={{ m: 0 }} orientation="vertical">
-            <IconButtonAtom
-              sx={{
-                background: (theme) => lighten(theme.palette.info.main, 0.9),
-                m: 0,
-              }}
-              aria-label="delete"
-            >
-              <AccessTimeRoundedIcon
-                sx={{
-                  color: (theme) => lighten(theme.palette.info.light, 0.2),
-                }}
-              />
-            </IconButtonAtom>
-          </Divider>
+        </Box>
+        <Box
+          sx={{
+            my: 1,
+            gap: 2,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Box sx={{ py: 1, display: "flex", flexDirection: "column" }}>
+            <Box sx={{ mb: 0, display: "flex", alignItems: "center" }}>
+              <Typography sx={{ color: "text.secondary", fontSize: 13 }}>
+                Work End
+              </Typography>
+            </Box>
+            <Typography variant="h6">
+              {workSchedule[0]?.endTime || "8:00 AM"}
+            </Typography>
+          </Box>
+          <Box sx={{ py: 1, display: "flex", flexDirection: "column" }}>
+            <Box sx={{ mb: 0, display: "flex", alignItems: "center" }}>
+              <Typography sx={{ color: "text.secondary", fontSize: 13 }}>
+                Work Timing
+              </Typography>
+            </Box>
+            <Typography variant="h6">Mon - Fri</Typography>
+          </Box>
           <Box
             sx={{
               py: 1,
@@ -150,11 +134,15 @@ export function WorkScheduleCard() {
             }}
           >
             <Box sx={{ mb: 0, display: "flex", alignItems: "center" }}>
-              <Typography sx={{ mr: 0.5, color: "text.secondary" }}>
+              <Typography
+                sx={{ mr: 0.5, color: "text.secondary", fontSize: 13 }}
+              >
                 Lunch End
               </Typography>
             </Box>
-            <Typography variant="h5">8:40 pm</Typography>
+            <Typography variant="h6">
+              {workSchedule[0]?.lunchEndTime || "5:45 PM"}
+            </Typography>
           </Box>
         </Box>
       </Stack>

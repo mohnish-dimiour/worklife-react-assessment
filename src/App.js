@@ -9,21 +9,25 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 
 export const AuthInstance = axios.create({
-  baseURL: "https://fbca-49-43-2-10.ngrok-free.app/auth",
+  baseURL:
+    "https://8373-2409-4043-4c95-8b15-1d1a-707d-3a61-d99e.ngrok-free.app/auth",
 });
 export const AppInstance = axios.create({
-  baseURL: "https://fbca-49-43-2-10.ngrok-free.app/api",
+  baseURL:
+    "https://8373-2409-4043-4c95-8b15-1d1a-707d-3a61-d99e.ngrok-free.app/api",
+  headers: { "ngrok-skip-browser-warning": "69420" },
 });
 
 function App() {
-  AuthInstance.defaults.baseURL = "https://fbca-49-43-2-10.ngrok-free.app/auth";
+  AuthInstance.defaults.baseURL =
+    "https://8373-2409-4043-4c95-8b15-1d1a-707d-3a61-d99e.ngrok-free.app/auth";
   const { token } = useSelector((state) => state.auth);
   return (
     <div className="App">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Routes token={"token"} />
+          <Routes token={token} />
         </ThemeProvider>
       </LocalizationProvider>
     </div>

@@ -5,15 +5,17 @@ import {
   AddReminderDialog,
   MotivationSlider,
   WorkScheduleCard,
+  WorkScheduleDialog,
 } from "../../molecules";
 import "./style.css";
 import { ReminderCard } from "../../molecules";
 
 const DashboardTemplate = () => {
-  const { open, handleClose } = useContext(DashboardContext);
+  const { open, workDialogOpen, handleClose } = useContext(DashboardContext);
   return (
     <>
       <AddReminderDialog {...{ open, handleClose }} />
+      <WorkScheduleDialog {...{ workDialogOpen, handleClose }} />
       <Stack spacing={2} sx={{ my: 4, width: "100%" }}>
         <Stack
           direction={"row"}

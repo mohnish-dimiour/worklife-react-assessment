@@ -4,3 +4,4 @@ export { DateTimePickerAtom } from "./dateTimePicker";
 export { IconButtonAtom } from "./iconButton";
 export { SelectAtom } from "./select";
 export { Quote } from "./quote";
+export { TimePickerAtom } from "./timePickerAtom";

@@ -4,12 +4,9 @@ import { LoginContext } from "../../utils/contexts";
 import { Stack } from "@mui/material";
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-// import Link from "@mui/material/Link";
 import { Link } from "react-router-dom";
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
@@ -83,11 +80,12 @@ export const LoginForm = () => {
                 label="Remember me"
               />
               <ButtonAtom
-                type="submit"
                 fullWidth
+                type="submit"
                 variant="contained"
                 size="large"
                 sx={{ mt: 3, mb: 2 }}
+                disableElevation
               >
                 Login
               </ButtonAtom>

@@ -21,8 +21,8 @@ export const Login = () => {
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
-      email: "",
-      password: "",
+      email: "test@gmail.com",
+      password: "1234",
     },
     validationSchema,
     onSubmit: (values) => {
@@ -43,7 +43,6 @@ export const Login = () => {
         toast.success("Logged in Successfully!");
       })
       .catch((err) => {
-        console.log(err);
         toast.error(
           err?.response?.data?.error || err?.message || "Something went wrong"
         );
